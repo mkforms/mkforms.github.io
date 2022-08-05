@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>formulaire</title>
+    <style type="text/css">
+        #formDisparu{
+            transition: height 2s;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 style="text-align: center;">formulaire d'enregistrement</h1>
+        <fieldset>
+            <legend>S'enregistré vous</legend>
+            <div class="form-group">
+                <form style="margin: 50px;" id="form1">
+                    <input type="text" name="nom" id="nom" placeholder="Nom" class="form-control" required>
+                    <input type="text" name="postNom" id="postNom" placeholder="Post-Nom" class="form-control" style="margin-top: 20px;" required>
+                    <input type="text" name="prenom" id="prenom" placeholder="Prenom" class="form-control" required style="margin-top: 20px;">
+                    <div class="row" >
+                        <div class="col-md-6">
+                            <input type="text" name="lieu" id="lieu" placeholder="Lieu de Naissance" required class="form-control" style="margin-top: 20px;">
+                        </div>
+                        <div class="col-md-6">
+                            <input type="date" name="date" required id="date" placeholder="Prenom" class="form-control" style="margin-top: 20px;">
+                        </div>
+                    </div>
+                    <div class="row" >
+                        <div class="col-md-4">
+                            <input type="text" name="pays" id="pays" placeholder="Pays d'orgine" class="form-control" style="margin-top: 20px;">
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" name="profession" id="profession" placeholder="Profession" class="form-control" style="margin-top: 20px;">
+                        </div>
+                        <div class="col-md-4">
+                            <select name="etat" id="etat" class="form-control" style="margin-top: 20px;">
+                                <option value="marie">Marié</option>
+                                <option value="celiba" selected>Celibateur</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row" id="formDisparu">
+                        <div class="col-md-6">
+                            <input type="text" name="femme" id="femme" placeholder="Nom de la femme" class="form-control" style="margin-top: 20px;">
+                        </div>
+                        <div class="col-md-6">
+                            <input type="number" name="NbrE" id="NbrE" placeholder="Nombre des enfants" class="form-control" style="margin-top: 20px;">
+                        </div>
+                    </div>
+                    <input type="text" name="adress" id="adress" placeholder="Adress local" class="form-control" style="margin-top: 20px;">
+                    <input type="mail" name="adressM" id="adressM" placeholder="Adress mail" class="form-control" style="margin-top: 20px;">
+                    <input type="text" name="Num" id="Num" placeholder="Numero de Telephone" class="form-control" style="margin-top: 20px;">
+                    <div class="row" style="margin-top:20px">
+                        <label for="photo">Selectionnez une photo</label>
+                        <input type="file" name="photo" id="photo" class="form-control">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6" style="margin-top:20px"><button type="submit" class="btn btn-primary btn-fluid" style="width: 100%;">Envoyer le formulaire</button></div>
+                        <div class="col-md-6" style="margin-top:20px" ><button type="reset" class="btn btn-danger" id="rest" style="width: 100%;">Reinitialiser le formulaire</button></div>
+                    </div>
+                </form>
+            </div>
+        </fieldset>
+    </div>
+
+    <script>
+        $("document").ready(function(){
+            $("#formDisparu").hide();
+            $("#etat").on("change",function(){
+                var val = $("#etat").val();
+                if(val == "celiba"){
+                    $("#formDisparu").hide();
+                }else{
+                    $("#formDisparu").show();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
